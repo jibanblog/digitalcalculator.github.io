@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<htMl>
+
+<head>
+
+<title> Calculator </title>
+
+<style>
+
+.main_div{
+height: 100vh;
+width: 100%;
+background-color: #CCCCFF;
+position: relative;
+}
+
+.child_div{
+height: 500px;
+width: 400px;
+background-color: black;
+position: absolute;
+left: 100px;
+top: 50px;
+}
+
+input[type="text"]{
+height: 50px;
+width: 300px;
+margin: 20px 40px;
+background-color: blue;
+color: white;
+border: 2px solid white;
+font-size: 25px;
+padding : 0px 10px;
+border-radius: 10px;
+}
+
+input[type="button"]{
+height:40px;
+width: 50px;
+margin: 10px;
+background-color: #03a9f4;
+border: 2px solid white;
+border-radius: 15px;
+color: black;
+font-size: 20px;
+}
+
+.button_div{
+margin: 25px 15px;
+}
+
+#clock{
+color: white;
+display: flex;
+justify-content: center;
+font-size: 40px;
+}
+
+</style>
+
+<script>
+
+setInterval(displayClock, 500);
+
+
+function displayClock(){
+
+
+var now = new Date();
+var currHour = now.getHours();
+var currMin = now.getMinutes();
+var currSec = now.getSeconds();
+
+if(currHour > 24){
+
+currHour = currHour-24;
+
+}
+
+if(currHour == 0){
+
+currHour = 12;
+
+}
+
+
+
+
+document.getElementById("clock").innerHTML = currHour + ":" + currMin + ":" + currSec;
+
+}
+
+
+
+
+
+</script>
+
+
+</head>
+
+<body>
+
+<div class="main_div">
+<div class="child_div">
+
+<div id="clock"> </div>
+
+<form name="forms">
+
+<input type="text" name="answer" id="output" value="" ><br><br>
+
+<div class="button_div">
+
+<input type="button" value="7" onclick="forms.answer.value += '7' ">
+<input type="button" value="8" onclick="forms.answer.value += '8' ">
+<input type="button" value="9" onclick="forms.answer.value += '9' ">
+<input type="button" value="DEL" class="clear" onclick="forms.answer.value = forms.answer.value.substr(0,forms.answer.value.length-1) ">
+<input type="button" value="CLR" class="clear" onclick ="forms.answer.value= '' ">
+
+<br><br>
+
+<input type="button" value="4" onclick="forms.answer.value += '4' ">
+<input type="button" value="5" onclick="forms.answer.value += '5' ">
+<input type="button" value="6" onclick="forms.answer.value += '6' ">
+<input type="button" value="*" onclick="forms.answer.value += '*' ">
+<input type="button" value="/" onclick="forms.answer.value += '/' ">
+
+<br><br>
+
+<input type="button" value="1" onclick="forms.answer.value += '1' ">
+<input type="button" value="2" onclick="forms.answer.value += '2' ">
+<input type="button" value="3" onclick="forms.answer.value += '3' ">
+<input type="button" value="+" onclick="forms.answer.value += '+' ">
+<input type="button" value="-" onclick="forms.answer.value += '-' ">
+
+<br><br>
+
+<input type="button" value="0" onclick="forms.answer.value += '0' ">
+<input type="button" value="." onclick="forms.answer.value += '.' ">
+<input type="button" value="(" onclick="forms.answer.value += '(' ">
+<input type="button" value=")" onclick="forms.answer.value += ')' ">
+<input type="button" value="=" onclick="forms.answer.value = eval(forms.answer.value)">
+
+
+</div>
+
+
+
+</form>
+
+
+
+</div>
+</div>
+
+
+</body>
+
+</htMl>
